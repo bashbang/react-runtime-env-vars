@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+    cmf-ui:
+        container_name: cmf-ui
+        build:
+            context: ./
+        ports:
+            - 8080:8080
+        environment:
+            # This overrides the .env.tempalte file vars
+            - REACT_APP_STAGE=rt
+        networks:
+            - cmf-ui
+
+networks:
+    cmf-ui:
+        driver: "bridge"
